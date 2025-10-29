@@ -1,3 +1,4 @@
+from turtle import pd
 import numpy as np
 import pandas as np
 import matplotlib.pyplot as plt
@@ -11,12 +12,33 @@ print(data.head())
 data = pd.read_excel('data.xlsx').convert_dtypes()
 print(data.head())
 
+# Cleaning data: removing duplicates
+data.drop_duplicates(inplace=True)
+print(f"Data shape after removing duplicates: {data.shape}")
+
+# Handeling missing values by removing rows with any missing values
+data.dropna(inplace=True)
+print(f"Data shape after removing missing values: {data.shape}")
+
+# correct invalid data types
+data['column_name'] = pd.to_numeric(data['column_name'], errors='coerce')
+
+# Fixing inconsistent data entries
+data['category_column'] = data['category_column'].str.lower().str.strip()
+
+# correcting spelling errors
+data['text_column'] = data['text_column'].replace({'teh': 'the','recieve': 'receive'})
+
+# Checking for invalid data ranges
+data = data[(data['numeric_column'] >= 0) & (data['numeric_column'] <= 100)]
+print(f"Data shape after fixing invalid ranges: {data.shape}")
+
+
+
+
+
 # Basic data statistics
 print(data.describe())
-
-# Handling missing values
-data.fillna(method='ffill', inplace=True)
-print(data.isnull().sum())
 
 #Scraping HTML table data
 url = 'https://example.com/data-table'
