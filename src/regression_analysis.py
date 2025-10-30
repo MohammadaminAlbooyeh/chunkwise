@@ -1,12 +1,21 @@
-# Regression analysis
 import skitlearn.linear_model as lm
 from sklearn.tree import DecisionTreeClassifier 
 import pandas as pd
 
+# ========= Regression analysis ==========
 # Load dataset
 data = pd.read_csv('data.csv')
 X = data[['feature1', 'feature2', 'feature3']]
 y = data['target']
+
+# Basic data statistics
+print(data.describe())
+
+# Scraping HTML table data
+url = 'https://example.com/data-table'
+tables = pd.read_html(url)
+data = tables[0]
+print(data.head())
 
 # Create a linear regression model
 model = lm.LinearRegression()
