@@ -43,10 +43,19 @@ This project contains scripts and notebooks for data analysis tasks.
 ```
 data_analysis/
 ├── .venv/                # Virtual environment (not tracked by git)
-├── src/                  # Source code
-│   └── main.py
-├── requirements.txt      # Python dependencies
-├── README.md             # Project documentation
+├── data/                 # Data files
+│   ├── raw/             # Original, immutable data
+│   └── processed/       # Cleaned and processed data
+├── notebooks/           # Jupyter notebooks for analysis
+├── src/                 # Source code
+│   ├── main.py         # Main script
+│   ├── data_visualization.py
+│   ├── reading_cleaning.py
+│   └── regression_analysis.py
+├── tests/              # Unit tests
+├── requirements.txt    # Python dependencies
+├── .gitignore         # Git ignore file
+└── README.md          # Project documentation
 ```
 
 ## Notes
