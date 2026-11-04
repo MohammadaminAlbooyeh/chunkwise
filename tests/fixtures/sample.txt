@@ -1,0 +1,8 @@
+This is the first paragraph of the sample text fixture. It contains a few
+sentences to give chunking strategies something realistic to split.
+
+This is the second paragraph. It is separated from the first by a blank
+line, which the recursive strategy should treat as the coarsest boundary.
+
+The third and final paragraph is here to make sure multi-chunk splits have
+at least three natural breakpoints to work with during tests.
